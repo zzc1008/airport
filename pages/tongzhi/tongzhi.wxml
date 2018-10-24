@@ -1,9 +1,7 @@
-<view wx:for='{{noticesinfo}}'>
-<view class='main'>
-    <view class='title'>{{noticesinfo[index].title}}</view>
-    <view class='content'>{{noticesinfo[index].infor}}</view>
-    <view class='date'>{{noticesinfo[index].datetime}}</view>
-    <view class='line'></view>
-</view>
 
+<view class='main' wx:for="{{noticesinfo}}" data-code="{{item.id}}">
+    <view class='title'>{{item.title}}</view>
+    <view class='content'>{{item.infor}}</view>
+    <view class='date'>{{item.datetime}}</view>
+    <view class='line'></view>
 </view>

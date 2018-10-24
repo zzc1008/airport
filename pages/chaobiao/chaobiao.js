@@ -36,6 +36,13 @@ Page({
       // data: {},
       success: function (res) {
         var list = res.data;
+        console.log(list);
+        for (var index in list) {
+          var d = new Date(list[index].datetime);//不调用这个会出现其中给一个函数没有定义的问题
+          /*result[index].dateTime = util.formatTime(commentTime,'Y-M-D');*/
+          var times = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+          list[index].datetime = times;
+        }
         if (list == null) {
           var toastText = '获取数据失败' + res.data.errMsg;
           wx.showToast({

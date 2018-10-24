@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    noticesinfo:''
   },
 
   /**
@@ -35,7 +35,8 @@ Page({
       method: 'GET',
       // data: {},
       success: function (res) {
-        var list = res.data;;
+        var list = res.data;
+        console.log(list);
         for (var index in list) {
           var d = new Date(list[index].datetime);//不调用这个会出现其中给一个函数没有定义的问题
           /*result[index].dateTime = util.formatTime(commentTime,'Y-M-D');*/
@@ -46,7 +47,7 @@ Page({
           var toastText = '获取数据失败' + res.data.errMsg;
           wx.showToast({
             title: toastText,
-            icon: '',
+            icon: 'loading',
             duration: 2000 //弹出时间
           })
         } else {

@@ -45,9 +45,9 @@ Page({
     console.log(result);
     var that = this;
     for(var index in result){
-      var d=new Date(result[index].date);
-      var times = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes()          + ':' + d.getSeconds(); 
-      result[index].date=times;
+      var d=new Date(result[index].datetime);
+      var times = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() ;
+      result[index].datetime=times;
     }
     this.setData({
       list: result
