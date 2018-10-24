@@ -1,53 +1,10 @@
 // pages/dianhua/dianhua.js
 Page({
 
-  tel_机电队: function () {
+  phoneCall: function (e) {
+    console.log(e);
     wx.makePhoneCall({
-      phoneNumber: '5965', //此号码仅用于测试 。
-      success: function () {
-        console.log("拨打电话成功！")
-      },
-      fail: function () {
-        console.log("拨打电话失败！")
-      }
-    })
-  },
-  tel_暖通队: function () {
-    wx.makePhoneCall({
-      phoneNumber: '4084', //此号码仅用于测试 。
-      success: function () {
-        console.log("拨打电话成功！")
-      },
-      fail: function () {
-        console.log("拨打电话失败！")
-      }
-    })
-  },
-  tel_电力队: function () {
-    wx.makePhoneCall({
-      phoneNumber: '5366', //此号码仅用于测试 。
-      success: function () {
-        console.log("拨打电话成功！")
-      },
-      fail: function () {
-        console.log("拨打电话失败！")
-      }
-    })
-  },
-  tel_综合队: function () {
-    wx.makePhoneCall({
-      phoneNumber: '5750', //此号码仅用于测试 。
-      success: function () {
-        console.log("拨打电话成功！")
-      },
-      fail: function () {
-        console.log("拨打电话失败！")
-      }
-    })
-  },
-  tel_汽车修理厂: function () {
-    wx.makePhoneCall({
-      phoneNumber: '5340', //此号码仅用于测试 。
+      phoneNumber: e.currentTarget.id, //此号码仅用于测试 。
       success: function () {
         console.log("拨打电话成功！")
       },
@@ -60,7 +17,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    phoneNum:''
   },
 
   /**

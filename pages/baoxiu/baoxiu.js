@@ -55,6 +55,30 @@ Page({
   },
   openConfirm: function (res) {
     var that = this;
+    if (!this.staticData.des) {
+      wx.showToast({
+        title: '报修描述未填',
+        icon: 'loading',
+        duration: 1000
+      })
+      return;
+    }
+    if (!this.staticData.name) {
+      wx.showToast({
+        title: '报修人姓名未填',
+        icon: 'loading',
+        duration: 1000
+      })
+      return;
+    }
+    if (!this.staticData.phone) {
+      wx.showToast({
+        title: '反馈电话未填',
+        icon: 'loading',
+        duration: 1000
+      })
+      return;
+    }
     wx.request({
       url: 'https://224r34952t.51mypc.cn/rpInsertInfo',
       header: {

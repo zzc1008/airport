@@ -3,5 +3,4 @@
     <view class='title'>{{item.title}}</view>
     <view class='content'>{{item.infor}}</view>
     <view class='date'>{{item.datetime}}</view>
-    <view class='line'></view>
 </view>
