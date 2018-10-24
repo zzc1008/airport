@@ -47,7 +47,7 @@ Page({
         for (var index in list) {
           var d = new Date(list[index].time);//不调用这个会出现其中给一个函数没有定义的问题
           /*result[index].dateTime = util.formatTime(commentTime,'Y-M-D');*/
-          var times = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds();
+          var times = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
           list[index].time = times;
         }
         if (list == null) {
