@@ -56,9 +56,9 @@ Page({
       header: {
         "content-type": "application/x-www-form-urlencoded"
       },
-      success: this.handleSubmitSucc.bind()
+     success: this.handleSubmitSucc.bind()
     })
-  },
+     },
   handleSubmitSucc(res){
     if (res.errMsg === 'request:ok'){
       this.setData({

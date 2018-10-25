@@ -17,23 +17,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    phoneNum:''
+    phoneNum:{}
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -45,8 +30,8 @@ Page({
         'Content-Type': 'application/json'
       },
       method: 'GET',
-      // data: {},
       success: function (res) {
+        console.log(res);
         var list = res.data;
         if (list == null) {
           var toastText = '获取数据失败' + res.data.errMsg;
@@ -57,7 +42,7 @@ Page({
           })
         } else {
           that.setData({
-            sdPhone: list
+            sdPhone:list,
           })
         }
       }

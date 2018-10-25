@@ -5,8 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:'',
-    dateTime:''
+    dataTime:"2018-09-22",
+    list:[],
+    dateTime:""
   },
 
   /**
@@ -33,10 +34,10 @@ Page({
     console.log(result);
     var that=this;
     for (var index in result) {
-      var d = new Date(result[index].date);//不调用这个会出现其中给一个函数没有定义的问题
+      var d = new Date(result[index].datetime);//不调用这个会出现其中给一个函数没有定义的问题
       /*result[index].dateTime = util.formatTime(commentTime,'Y-M-D');*/
-      var times = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() 
-      result[index].date = times;
+      var times = d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate() + ' ' + d.getHours() + ':' + d.getMinutes()        + ':' + d.getSeconds();
+      result[index].datetime = times;
     }
     this.setData({
       list:result

@@ -4,7 +4,6 @@ Page({
   /**
    * 页面的初始数据
    */
-
   data: {
     index: 0,
     focus: false,
@@ -24,15 +23,15 @@ Page({
     picturesPath: "",
     success:false,
     list:'',
-    fault_type_id:1,
-    department_id:1,
-    location_id:1,
+    fault_type_id:'',
+    department_id:'',
+    location_id:'',
     describe:'',
     personName:'',
     phone:'',
-    des: '',
     
   },
+  staticData:{},
   // chooseImage: function (e) {
   //   var that = this;
   //   wx.chooseImage({
@@ -52,29 +51,28 @@ Page({
   //     urls: this.data.files // 需要预览的图片http链接列表
   //   })
   // },
-
   baoxiuInfoIn:function(res){
     console.log(res);
   },
   openConfirm: function (res) {
-    var that = this;
-    if (!this.data.des) {
-      wx.showToast({
-        title: '报修描述未填',
-        icon: 'loading',
-        duration: 1000
-      })
-      return;
-    }
-    if (!this.data.personName) {
+    console.log(res);
+     if (!this.staticData.des) {
+       wx.showToast({
+         title: '报修描述未填',
+         icon: 'loading',
+         duration: 1000
+       })
+       return;
+     }
+    if (!this.staticData.name) {
       wx.showToast({
         title: '报修人姓名未填',
         icon: 'loading',
         duration: 1000
       })
       return;
-    }
-    if (!this.data.phone) {
+    } 
+    if (!this.staticData.phone) {
       wx.showToast({
         title: '反馈电话未填',
         icon: 'loading',
@@ -82,6 +80,7 @@ Page({
       })
       return;
     }
+    var that = this;
     wx.request({
       url: 'https://224r34952t.51mypc.cn/rpInsertInfo',
       header: {
@@ -147,21 +146,22 @@ Page({
     var that=this;
     that.setData({
       describe:res.detail.value,
-      des: res.detail.value
     })
-    
+    this.staticData.des = res.detail.value
   },
   personName:function(res){
     var that = this;
     that.setData({
       personName: res.detail.value,
     })
+    this.staticData.name = res.detail.value
   },
   phone:function(res){
     var that = this;
     that.setData({
       phone: res.detail.value,
     })
+    this.staticData.phone = res.detail.value
   },
   WZbindPickerChange:function(e){
     var that=this;

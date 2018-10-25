@@ -7,12 +7,12 @@
   <view class='line'></view> 
   <view>
     <view wx:for="{{list}}">
-    <view><text style=''>值班人员: {{item.user.login_name}},{{item.user.phone}}</text></view>
+    <view><text style=''>值班人员: {{item.name}},{{item.phone}}</text></view>
     <view class='date'>
-    <view>科室: {{item.user.department.department_name}}</view>
+    <view>科室: {{item.department}}</view>
     <image class='image' src='/pages/image/jiantou.png' style='width:60rpx;height:60rpx'></image>
     </view>
-    <view >时间: {{item.date}}</view>
+    <view >时间: {{item.datetime}}</view>
     <view class='line'></view>
     </view>
   </view>
