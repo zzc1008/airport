@@ -4,6 +4,7 @@ Page({
   /**
    * 页面的初始数据
    */
+
   data: {
     index: 0,
     focus: false,
@@ -23,12 +24,13 @@ Page({
     picturesPath: "",
     success:false,
     list:'',
-    fault_type_id:'',
-    department_id:'',
-    location_id:'',
+    fault_type_id:1,
+    department_id:1,
+    location_id:1,
     describe:'',
     personName:'',
     phone:'',
+    des: '',
     
   },
   // chooseImage: function (e) {
@@ -50,12 +52,13 @@ Page({
   //     urls: this.data.files // 需要预览的图片http链接列表
   //   })
   // },
+
   baoxiuInfoIn:function(res){
     console.log(res);
   },
   openConfirm: function (res) {
     var that = this;
-    if (!this.staticData.des) {
+    if (!this.data.des) {
       wx.showToast({
         title: '报修描述未填',
         icon: 'loading',
@@ -63,7 +66,7 @@ Page({
       })
       return;
     }
-    if (!this.staticData.name) {
+    if (!this.data.personName) {
       wx.showToast({
         title: '报修人姓名未填',
         icon: 'loading',
@@ -71,7 +74,7 @@ Page({
       })
       return;
     }
-    if (!this.staticData.phone) {
+    if (!this.data.phone) {
       wx.showToast({
         title: '反馈电话未填',
         icon: 'loading',
@@ -144,7 +147,9 @@ Page({
     var that=this;
     that.setData({
       describe:res.detail.value,
+      des: res.detail.value
     })
+    
   },
   personName:function(res){
     var that = this;
